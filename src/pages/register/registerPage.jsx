@@ -1,5 +1,6 @@
-import { UserForm } from "../forms/userForm";
-import { useAuth } from "../hooks/useAuth";
+import styles from "./registerPage.module.css";
+import { UserForm } from "../../forms/userForm";
+import { useAuth } from "../../hooks/useAuth";
 
 export const RegisterPage = () => {
   const { register } = useAuth();
@@ -9,9 +10,8 @@ export const RegisterPage = () => {
   };
 
   return (
-    <div>
+    <div className={styles.page}>
       <h1>Register</h1>
-      <hr />
       <UserForm
         submitText="Register"
         onSubmit={(data) => handleRegister(data)}

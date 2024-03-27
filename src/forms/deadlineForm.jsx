@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Input } from "../components/input";
-import { Button } from "../components/button";
+import { Input } from "../components/input/input";
+import { Button } from "../components/button/button";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
 
@@ -16,12 +16,12 @@ export const DeadlineForm = ({ onSubmit, initialValue }) => {
 
   return (
     <div>
+      <h1>{deadline.title === "" ? "New deadline" : deadline.title}</h1>
       <Input
         value={deadline.title}
         setValue={(v) => setDeadline({ ...deadline, title: v })}
         label="Title"
       />
-      <br />
       <Input
         // value={deadline.assignedDate.toISOString().substring(0, 10)}
         value={deadline.assignedDate.format("YYYY-MM-DD")}
@@ -34,7 +34,6 @@ export const DeadlineForm = ({ onSubmit, initialValue }) => {
         }
         label="Assigned Date"
       />
-      <br />
       <Input
         value={deadline.dueDate.format("YYYY-MM-DD")}
         type="date"
@@ -47,7 +46,6 @@ export const DeadlineForm = ({ onSubmit, initialValue }) => {
         }}
         label="Due Date"
       />
-      <br />
       <Button text="Back" onClick={() => navigate(-1)} />
       <Button text="Save" onClick={() => onSubmit(deadline)} />
     </div>

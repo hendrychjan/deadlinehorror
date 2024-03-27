@@ -1,14 +1,12 @@
+import styles from "./dashboardPage.module.css";
 import { useState, useEffect } from "react";
-import { useAuth } from "../hooks/useAuth";
-import { Button } from "../components/button";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import { useApi } from "../hooks/useApi";
-import { DeadlinesOverview } from "../components/deadlinesOverview";
-import { DeadlineForm } from "../forms/deadlineForm";
-import { useSortedArray } from "../hooks/useSortedArray";
+import { useApi } from "../../hooks/useApi";
+import { DeadlinesOverview } from "../../components/deadlines/overview/deadlinesOverview";
+import { DeadlineForm } from "../../forms/deadlineForm";
+import { useSortedArray } from "../../hooks/useSortedArray";
 
 export const DashboardPage = () => {
-  const { user } = useAuth();
   const { deadlineService } = useApi();
   const navigate = useNavigate();
 
@@ -53,13 +51,7 @@ export const DashboardPage = () => {
   }, []);
 
   return (
-    <div>
-      Logged in as {user}
-      <Button onClick={() => navigate("/logout")} text="Logout" />
-      <hr />
-      <h1>Dashboard</h1>
-      <Button onClick={() => handleEditAndCreateDeadline("new")} text="New" />
-      <hr />
+    <div className={styles.page}>
       <Routes>
         <Route
           path="/"
@@ -68,6 +60,7 @@ export const DashboardPage = () => {
               deadlines={deadlines.items}
               onEdit={handleEditAndCreateDeadline}
               onDelete={handleDeleteDeadline}
+              onCreate={() => handleEditAndCreateDeadline("new")}
             />
           }
         />

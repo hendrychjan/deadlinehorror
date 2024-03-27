@@ -1,0 +1,37 @@
+.base {
+  margin: 10px;
+  padding: 10px 30px;
+  border-radius: 8px;
+  background-color: white;
+  color: rgb(var(--primary));
+  font-weight: bold;
+}
+
+.base:hover {
+  cursor: pointer;
+}
+
+.elevated {
+  border: none;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.elevated:hover {
+  box-shadow: rgba(var(--primary), 0.25) 0px 2px 5px -1px,
+    rgba(var(--primary), 0.3) 0px 1px 3px -1px;
+}
+
+.elevated:active {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px inset,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px inset;
+  border: none;
+}
+
+.outlined {
+  border: 1px solid rgb(var(--primary));
+}
+
+.outlined:hover {
+  background-color: rgba(var(--primary), 0.1);
+}

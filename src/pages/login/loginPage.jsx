@@ -1,5 +1,6 @@
-import { useAuth } from "../hooks/useAuth";
-import { UserForm } from "../forms/userForm";
+import styles from "./loginPage.module.css";
+import { useAuth } from "../../hooks/useAuth";
+import { UserForm } from "../../forms/userForm";
 
 export const LoginPage = () => {
   const { login } = useAuth();
@@ -9,9 +10,8 @@ export const LoginPage = () => {
   };
 
   return (
-    <div>
+    <div className={styles.page}>
       <h1>Login</h1>
-      <hr />
       <UserForm onSubmit={(data) => handleLogIn(data)} />
     </div>
   );
