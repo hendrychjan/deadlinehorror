@@ -2,7 +2,7 @@ services:
   api:
     image: hendrychjan/deadlinehorror-api:1.0.0
     environment:
-      MONGO_URL: mongodb://mongo:27017/deadlinehorror?retryWrites=true&w=majority
+      MONGO_URL: ${MONGO_DB}
       JWT_SECRET: ${JWT_SECRET}
     ports:
       - ${API_PORT}:3000
@@ -14,11 +14,3 @@ services:
         APP_PORT: 3001
     ports:
       - ${WEB_PORT}:3001
-  mongo:
-      image: mongo
-      volumes:
-        - deadlinehorror_db:/data/db
-      ports:
-        - 27017
-volumes:
-  deadlinehorror_db:
