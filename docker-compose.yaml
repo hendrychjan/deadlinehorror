@@ -2,7 +2,7 @@ services:
   api:
     image: hendrychjan/deadlinehorror-api:1.0.0
     environment:
-      MONGO_URL: ${MONGO_DB}
+      MONGO_URL: ${MONGO_URL}
       JWT_SECRET: ${JWT_SECRET}
     ports:
       - ${API_PORT}:3000
